@@ -1,9 +1,11 @@
 package com.guilherme.silva.productcatalog.repository;
 
+
 import com.guilherme.silva.productcatalog.model.Product;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-public interface ProductRepository extends CrudRepository<Product, Long> {
+
+public interface ProductRepository extends ElasticsearchRepository<Product, Long> {
     
 }

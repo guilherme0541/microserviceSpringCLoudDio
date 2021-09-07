@@ -1,5 +1,8 @@
 package com.guilherme.silva.productcatalog.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.guilherme.silva.productcatalog.model.Product;
 import com.guilherme.silva.productcatalog.repository.ProductRepository;
 
@@ -16,7 +19,27 @@ public class ProductService {
     }
 
     public Product getProdcutById(Long id) throws Exception {
+        return productExists(id);
+    }
+
+    public List<Product> getAllProducts() {
+        List<Product> items = new ArrayList<>();
+        productRepository.findAll().forEach(items::add);
+        return items;
+    }
+
+    public Product updateProductById(Long id, Product product) throws Exception {
+        productExists(id);
+        return productRepository.save(product); 
+    }
+
+    public void deleteById(Long id) throws Exception {
+        productExists(id);
+        productRepository.deleteById(id);
+    }
+    
+    private Product productExists(Long id) throws Exception {
         return productRepository.findById(id)
-                    .orElseThrow(()-> new Exception("Product not Found with id "+id));     
+        .orElseThrow(()-> new Exception("Product not Found with id "+id));
     }
 }
