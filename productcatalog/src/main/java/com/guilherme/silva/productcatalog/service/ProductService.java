@@ -1,16 +1,22 @@
-package src.main.java.com.guilherme.silva.productcatalog.service;
+package com.guilherme.silva.productcatalog.service;
 
+import com.guilherme.silva.productcatalog.model.Product;
+import com.guilherme.silva.productcatalog.repository.ProductRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service
 public class ProductService {
     
-    @AutoWired
+    @Autowired
     private ProductRepository productRepository;
 
-    public Product createProduct(Produto product){
+    public Product createProduct(Product product){
         return productRepository.save(product);  
     }
 
-    public Product getProdcutById(Long id) {
-        return productRepository.getById(id)
-                    .orElseThrow(()->new Exception("Product "+id+" Not Found"));        
+    public Product getProdcutById(Long id) throws Exception {
+        return productRepository.findById(id)
+                    .orElseThrow(()-> new Exception("Product not Found with id "+id));     
     }
 }

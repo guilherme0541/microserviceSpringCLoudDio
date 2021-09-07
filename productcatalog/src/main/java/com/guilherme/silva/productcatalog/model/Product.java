@@ -1,6 +1,11 @@
-package src.main.java.com.guilherme.silva.productcatalog.model;
+package com.guilherme.silva.productcatalog.model;
 
-@Document(indexName = "product", type = "catalog")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+
+import lombok.Data;
+
+@Document(indexName = "products")
 @Data
 public class Product {
     

@@ -1,16 +1,24 @@
-package src.main.java.com.guilherme.silva.productcatalog.controller;
+package com.guilherme.silva.productcatalog.controller;
 
+import com.guilherme.silva.productcatalog.model.Product;
+import com.guilherme.silva.productcatalog.service.ProductService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
-    @AutoWired
+    @Autowired
     private ProductService productService;
 
     @PostMapping
     Product create(@RequestBody Product product){
-        return productService.create(product);
+        return productService.createProduct(product);
     }
     
 }
