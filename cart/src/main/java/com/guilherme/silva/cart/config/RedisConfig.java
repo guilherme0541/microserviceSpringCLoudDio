@@ -1,7 +1,5 @@
 package com.guilherme.silva.cart.config;
 
-import java.beans.BeanProperty;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
@@ -16,7 +14,7 @@ public class RedisConfig {
     @Bean
     JedisConnectionFactory jedisConnectionFactory(){
         RedisStandaloneConfiguration standaloneConfig = new RedisStandaloneConfiguration("localhost", 6379);
-        return new JedisConnectionFactory();
+        return new JedisConnectionFactory(standaloneConfig);
     }
 
     @Bean
