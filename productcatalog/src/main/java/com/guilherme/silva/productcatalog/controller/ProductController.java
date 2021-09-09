@@ -38,19 +38,19 @@ public class ProductController {
     
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    Product getProdcutById(@PathVariable Long id) throws Exception{
+    Product getProdcutById(@PathVariable("id") Long id) throws Exception{
         return productService.getProdcutById(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    Product updateProductById(@PathVariable Long id, @RequestBody Product product) throws Exception{
+    Product updateProductById(@PathVariable("id") Long id, @RequestBody Product product) throws Exception{
         return productService.updateProductById(id, product);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    void deleteById(@PathVariable Long id) throws Exception{
+    void deleteById(@PathVariable("id") Long id) throws Exception{
         productService.deleteById(id);
     }
 }

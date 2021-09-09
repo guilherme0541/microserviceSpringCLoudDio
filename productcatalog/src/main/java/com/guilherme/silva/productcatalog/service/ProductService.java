@@ -24,7 +24,7 @@ public class ProductService {
 
     public List<Product> getAllProducts() {
         List<Product> items = new ArrayList<>();
-        productRepository.findAll().forEach(items::add);
+        productRepository.findAll().iterator().forEachRemaining(items::add);; //.forEach(items::add);
         return items;
     }
 

@@ -3,10 +3,18 @@ package com.guilherme.silva.productcatalog.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Document(indexName = "products")
-@Data
+@Document(indexName = "productsIndex")
+@Getter
+@Setter
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     
     @Id
