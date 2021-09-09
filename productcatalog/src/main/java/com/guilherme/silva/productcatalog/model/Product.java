@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document(indexName = "productsIndex")
+@Document(indexName = "productsindex")
 @Getter
 @Setter
 @EqualsAndHashCode
